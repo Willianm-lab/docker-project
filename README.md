@@ -1,7 +1,15 @@
-# docker-project
-Projeto de e-commerce rodando em containers
+# Projeto Docker: React + Flask + MongoDB
 
-Como rodar? execute os seguintes comandos:
+## Descrição
+Este projeto consiste em um frontend em React, um backend em Flask e um banco de dados MongoDB, todos executados via Docker.  
 
+## Estrutura do projeto
+- `backend/` → Aplicação Flask
+- `frontend/` → Aplicação React
+- `docker-compose.yml` → Orquestração dos containers
+
+## Como rodar
+1. Clone o repositório:
+```bash
 git clone https://github.com/seu-usuario/docker_projeto.git
 cd docker_projeto
