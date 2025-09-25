@@ -1,0 +1,32 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_SECRET: "troque_essa_chave"
+      JWT_SECRET: "chave_jwt"
+      MONGO_URI: "mongodb://mongo:27017"
+      DB_NAME: "meus_dados"
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
